@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom"
 
 function App() {
 	return <Routes>
-		<Route path="/" element={<h1>Hi22</h1>}></Route>
+		<Route path="/" element={<h1>Hi</h1>}></Route>
+		<Route path="/new" element={<h1>New</h1>}></Route>
 	</Routes>
 }
 
