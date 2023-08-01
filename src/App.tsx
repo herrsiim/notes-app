@@ -23,10 +23,10 @@ export type RawNoteData = {
 export type NoteData = {
 	title: string
 	markdown: string
-	tags: Tags[]
+	tags: Tag[]
 }
 
-export type Tags = {
+export type Tag = {
 	id: string
 	label: string
 }
@@ -50,11 +50,15 @@ function App() {
     })
   }
 
-	return (
+	function addTag(tag: Tag) {
+		setTags(prev => [...prev, tag])
+	}
+
+	return ( 
 		<Container className="my-4">
 			<Routes>
 				<Route path="/" element={<h1>Hi</h1>}></Route>
-				<Route path="/new" element={<NewNote />}></Route>
+				<Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag={addTag} availableTags={tags}/>}></Route>
 				<Route path="/:id">
 					<Route index element={<h1>Show</h1>} />
 					<Route path="edit" index element={<h1>Edit</h1>} />
