@@ -14,7 +14,14 @@ export function EditNote({ onSubmit, onAddTag, availableTags }: EditNoteProps) {
 	return (
 		<>
 			<h1 className="mb-4">Edit Note</h1>
-			<NoteForm onSubmit={data => onSubmit(note.id, data)} onAddTag={onAddTag} availableTags={availableTags} />
+			<NoteForm
+				onSubmit={data => onSubmit(note.id, data)}
+				onAddTag={onAddTag} 
+				availableTags={availableTags}
+				title={note.title}
+				markdown={note.markdown}
+				tags={note.tags}
+				/>
 		</>
 	)
 }
